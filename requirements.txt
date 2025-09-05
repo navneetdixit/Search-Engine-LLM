@@ -3,4 +3,7 @@ langchain
 langchain-community
 langchain-groq
 python-dotenv
+arxiv
+wikipedia
 duckduckgo-search
+
