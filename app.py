@@ -17,7 +17,12 @@ arxiv = ArxivQueryRun(api_wrapper=arxiv_wrapper)
 wiki_wrapper = WikipediaAPIWrapper(top_k_results=1, doc_content_chars_max=200)
 wiki = WikipediaQueryRun(api_wrapper=wiki_wrapper)
 
-search = DuckDuckGoSearchRun(name="Search")
+try:
+    from langchain_community.tools import DuckDuckGoSearchRun
+    search = DuckDuckGoSearchRun(name="Search")
+except ImportError:
+    st.error("DuckDuckGoSearchRun requires the 'duckduckgo-search' package. Run: pip install duckduckgo-search")
+    search = None
 
 # Streamlit UI
 st.title("🔎 LangChain - Chat with Search")
@@ -74,3 +79,4 @@ if prompt := st.chat_input(placeholder="What is machine learning?"):
             response = search_agent.run(prompt, callbacks=[st_cb])
             st.session_state.messages.append({"role": "assistant", "content": response})
             st.write(response)
+
