@@ -52,7 +52,7 @@ if prompt := st.chat_input(placeholder="Ask me something..."):
     else:
         llm = ChatGroq(
             groq_api_key=api_key,
-            model_name="Llama3-8b-8192",
+            model_name="llama3-8b-8192",
             streaming=True
         )
         tools = [arxiv, wiki]
@@ -71,3 +71,4 @@ if prompt := st.chat_input(placeholder="Ask me something..."):
             response = search_agent.run(prompt, callbacks=[st_cb])
             st.session_state.messages.append({"role": "assistant", "content": response})
             st.write(response)
+
