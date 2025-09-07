@@ -1,8 +1,9 @@
-streamlit==1.49.1
-langchain==0.0.348
-langchain-community==0.0.211
-langchain-groq==0.0.6
+streamlit==1.39.0
+langchain==0.3.27
+langchain-community==0.3.29
+langchain-groq==0.3.7
 python-dotenv==1.0.0
 arxiv==1.4.6
 wikipedia==1.4.0
-duckduckgo-search>=4.0.0
+duckduckgo-search==8.1.1
+
